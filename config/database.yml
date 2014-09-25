@@ -1,0 +1,16 @@
+defaults: &defaults
+  adapter: postgresql
+  port: 5432
+  pool: 1
+
+development:
+  <<: *defaults
+  database: clean_india_dev
+
+test:
+  <<: *defaults
+  database: <%= ENV['DB_NAME'] || 'clean_india_test' %>
+
+production:
+  <<: *defaults
+  database: clean_india_prod
